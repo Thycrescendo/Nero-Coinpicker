@@ -35,7 +35,7 @@ require("./routes/wallet")(
   transactionPool,
   wallet,
   transactionMiner,
-  pubsub
+  
 );
 
 app.get("*", (req, res) => {
