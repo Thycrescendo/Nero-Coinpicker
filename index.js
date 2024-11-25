@@ -34,7 +34,6 @@ require("./routes/wallet")(
   blockchain,
   transactionPool,
   wallet,
-  transactionMiner,
   
 );
 
