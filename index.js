@@ -36,7 +36,7 @@ const syncWithRootState = () => {
   request(
     { url: `${ROOT_NODE_ADDRESS}/api/blocks` },
     (error, response, body) => {
-      if (!
+      if
       }
     }
   );
