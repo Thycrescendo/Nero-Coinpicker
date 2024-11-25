@@ -27,7 +27,6 @@ const transactionMiner = new TransactionMiner({
   transactionPool,
   wallet,
   pubsub
-});
 
 setTimeout(() => pubsub.broadcastChain(), 1500);
 
