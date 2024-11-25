@@ -35,8 +35,7 @@ app.get("*", (req, res) => {
 const syncWithRootState = () => {
   request(
     { url: `${ROOT_NODE_ADDRESS}/api/blocks` },
-    (error, response, body) => {
-      if
+    (error, response, body) 
       }
     }
   );
