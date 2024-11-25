@@ -14,7 +14,7 @@ const isDevelopment = process.env.ENV === "development";
 const REDIS_URL = isDevelopment
   ? "redis://127.0.0.1:6379"
   : "redis://h:p39a592a03185795c8d675c530ed190424e4393da481cf6e3dc1a1f21aca78212@ec2-18-232-45-80.compute-1.amazonaws.com:15649";
-const 
+
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 
