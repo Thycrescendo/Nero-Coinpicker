@@ -37,7 +37,7 @@ const syncWithRootState = () => {
     { url: `${ROOT_NODE_ADDRESS}/api/blocks` },
     (error, response, body) => {
       if (!error && response.statusCode === 200) {
-        const rootChain = 
+        const rootChain
       }
     }
   );
