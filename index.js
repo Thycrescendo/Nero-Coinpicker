@@ -28,8 +28,7 @@ setTimeout(() => pubsub.broadcastChain(), 1500);
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client/dist")));
 
-require("./routes/blockchain")(app, blockchain, pubsub);
-
+require("./routes/blockchain")(app, blo
 );
 
 app.get("*", (req, res) => {
