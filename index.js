@@ -40,7 +40,7 @@ const syncWithRootState = () => {
         const rootChain = JSON.parse(body);
 
         console.log("replace chain on a sync with", rootChain);
-        blockchain.replaceChai
+        blockch
       }
     }
   );
