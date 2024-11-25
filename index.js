@@ -33,7 +33,6 @@ require("./routes/wallet")(
   app,
   blockchain,
   transactionPool,
-  wallet,
   
 );
 
