@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client/dist")));
 
 require("./routes/blockchain")(app, blockchain, pubsub);
-require("./routes/
+
 );
 
 app.get("*", (req, res) => {
