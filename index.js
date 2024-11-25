@@ -39,7 +39,7 @@ const syncWithRootState = () => {
       if (!error && response.statusCode === 200) {
         const rootChain = JSON.parse(body);
 
-        console.log("replace chain on a sync
+        console.log("replace chain on 
       }
     }
   );
