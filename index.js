@@ -14,28 +14,49 @@ const isDevelopment = process.env.ENV === "development";
 const REDIS_URL = isDevelopment
   ? "redis://127.0.0.1:6379"
   : "redis://h:p39a592a03185795c8d675c530ed190424e4393da481cf6e3dc1a1f21aca78212@ec2-18-232-45-80.compute-1.amazonaws.com:15649";
-
+const DEFAULT_PORT = 3000;
 const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
-
+const app = express();
 const blockchain = new Blockchain();
 const transactionPool = new TransactionPool();
 const wallet = new Wallet();
 const pubsub = new PubSub({ blockchain, transactionPool, redisUrl: REDIS_URL });
-const 
+const transactionMiner = new TransactionMiner({
+  blockchain,
+  transactionPool,
+  wallet,
+  pubsub
+});
+
 setTimeout(() => pubsub.broadcastChain(), 1500);
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client/dist")));
 
-
+require("./routes/blockchain")(app, blockchain, pubsub);
+require("./routes/wallet")(
+  app,
+  blockchain,
+  transactionPool,
+  wallet,
+  transactionMiner,
+  pubsub
+);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/dist/i
+  res.sendFile(path.join(__dirname, "client/dist/index.html"));
+});
+
 const syncWithRootState = () => {
   request(
     { url: `${ROOT_NODE_ADDRESS}/api/blocks` },
-    (error, response, body) 
+    (error, response, body) => {
+      if (!error && response.statusCode === 200) {
+        const rootChain = JSON.parse(body);
+
+        console.log("replace chain on a sync with", rootChain);
+        blockchain.replaceChain(rootChain);
       }
     }
   );
