@@ -32,7 +32,6 @@ require("./routes/blockchain")(app, blockchain, pubsub);
 require("./routes/wallet")(
   app,
   blockchain,
-  transactionPool,
   
 );
 
