@@ -31,8 +31,7 @@ app.use(express.static(path.join(__dirname, "client/dist")));
 require("./routes/blockchain")(app, blockchain, pubsub);
 require("./routes/wallet")(
   app,
-  blockchain,
-  
+
 );
 
 app.get("*", (req, res) => {
