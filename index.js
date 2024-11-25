@@ -31,8 +31,7 @@ app.use(express.static(path.join(__dirname, "client/dist")));
 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/dist/index.html"));
-
+  res.sendFile(path.join(__dirname, "client/dist/i
 const syncWithRootState = () => {
   request(
     { url: `${ROOT_NODE_ADDRESS}/api/blocks` },
