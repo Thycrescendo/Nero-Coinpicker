@@ -61,7 +61,7 @@ const links = [
             ))}
           </div>
           <div className="mt-8 md:order-1 md:mt-0">
-            <p className="text-center text-base text-black">&copy; {new Date().getFullYear()} For Build-With-Celo-Hackathon-6 by Isaac J.</p>
+            <p className="text-center text-base text-black">&copy; {new Date().getFullYear()} For Nero by Thycrescendo</p>
           </div>
         </div>
       </footer>
