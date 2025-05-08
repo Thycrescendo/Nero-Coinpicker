@@ -43,5 +43,3 @@ the features of ecommerce with cryptocurrency to bring a new parandigm of crypto
 - An amount as fee is charged on the Seller in `cUSD` for using the storefront.
 - Buyer also pays a tiny amount in cUSD for using the platform.
 - For tokens/coins on other chains, we use the crosschain registry with Wormhole crosschain messaging to handle request on other chains.
-
-For this hackathon, we're using registry on Celo blockchain only hence only Celo-based token are supported.

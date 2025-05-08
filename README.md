@@ -1,5 +1,14 @@
 # 🛍️ Nero-Coinpicker
 
+
+[User Interface Layer] ←→ [NERO Chain Integration Layer] ←→ [Smart Contract Layer]
+       ↑                             ↑                              ↑
+       |                             |                              |
+[React/Next.js Frontend]    [Paymaster (Gasless TX)]       [CoinPicker Registry]
+[RainbowKit Wallet Conn.]   [UserOpSDK (Bundling)]         [Token Marketplace]
+[Web2-style UI]             [Any-Token Gas Handler]        [Cross-Chain Bridge]
+
+
 **Frictionless Crypto Commerce for Everyone**  
 A seamless eCommerce x DeFi dApp built on **NERO Chain**, designed to onboard the next billion users into Web3 by making crypto transactions as easy as online shopping.
 
