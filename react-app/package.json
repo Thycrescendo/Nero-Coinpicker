@@ -40,16 +40,15 @@
         "web3": "1.10"
     },
     "repository": {
-        "type": "git",
-        "url": "git+https://github.com/celo-org/celo-composer.git"
+        "type": "git"
     },
     "bugs": {
-        "url": "https://github.com/celo-org/celo-composer/issues"
+        "url": "https://github.com/Thycrescendo/Nero-Coinpicker/issues"
     },
-    "homepage": "https://github.com/celo-org/celo-composer/blob/main/README.md",
+    "homepage": "https://github.com/Thycrescendo/Nero-Coinpicker/main/README.md",
     "keywords": [
-        "celo-composer",
-        "celo"
+        "Nero-composer",
+        "Nero"
     ],
     "browser": {
         "net": false
