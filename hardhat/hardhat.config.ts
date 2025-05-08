@@ -11,27 +11,16 @@ const PRIVATE_KEY_M = String(process.env.PRIVATE_KEY_M);
 
 const config: HardhatUserConfig = {
     networks: {
-        // Existing Celo networks remain for reference
-        alfajores: {
-            url: "https://alfajores-forno.celo-testnet.org",
-            accounts: [PRIVATE_KEY],
-        },
-        celo: {
-            url: "https://forno.celo.org",
-            accounts: [PRIVATE_KEY],
-        },
-        // New NERO Chain configurations
         neroTestnet: {
             url: "https://testnet-rpc.nerochain.io",
             accounts: [PRIVATE_KEY],
-            chainId: 7979, // Example testnet chain ID
+            chainId: 7979,
             gas: "auto",
             gasPrice: "auto",
-            // AA Configuration
             accountAbstraction: {
                 enabled: true,
                 paymaster: {
-                    url: "https://aa.nerochain.io/paymaster",
+                    url: process.env.NERO_PAYMASTER_URL,
                     policyId: process.env.NERO_PAYMASTER_POLICY_ID
                 }
             }
@@ -39,7 +28,7 @@ const config: HardhatUserConfig = {
         neroMainnet: {
             url: "https://rpc.nerochain.io",
             accounts: [PRIVATE_KEY_M],
-            chainId: 7070, // Example mainnet chain ID
+            chainId: 7070, 
             gas: "auto",
             gasPrice: "auto",
             accountAbstraction: {
@@ -53,13 +42,10 @@ const config: HardhatUserConfig = {
     },
     etherscan: {
         apiKey: {
-            alfajores: String(process.env.CELOSCAN_API_KEY),
-            celo: String(process.env.CELOSCAN_API_KEY),
             neroTestnet: String(process.env.NERO_SCAN_API_KEY),
             neroMainnet: String(process.env.NERO_SCAN_API_KEY)
         },
         customChains: [
-            // Existing Celo chains...
             {
                 network: "neroTestnet",
                 chainId: 7979,
@@ -81,16 +67,16 @@ const config: HardhatUserConfig = {
     namedAccounts: {
         deployer: {
             default: 0,
-            7979: `privatekey://${PRIVATE_KEY}`, // neroTestnet
-            7070: `privatekey://${PRIVATE_KEY_M}` // neroMainnet
+            7979: `privatekey://${PRIVATE_KEY}`, 
+            7070: `privatekey://${PRIVATE_KEY_M}` 
         },
         nativeGasToken: {
             7979: "0x0000000000000000000000000000000000000000", 
             7070: "0x0000000000000000000000000000000000000000"
         },
         neroUSD: {
-            7979: "0x1234...",
-            7070: "0x5678..."
+            7979: process.env.NERO_TESTNET_USD || "",
+            7070: process.env.NERO_MAINNET_USD || ""
         }
     },
     solidity: {
@@ -115,7 +101,7 @@ const config: HardhatUserConfig = {
             },
             userOp: {
                 bundlerUrl: process.env.NERO_BUNDLER_URL,
-                entryPoint: "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789" // Standard entry point
+                entryPoint: "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789"
             }
         }
     }
